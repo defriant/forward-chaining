@@ -1,0 +1,112 @@
+.login-logo {
+    width: 120px;
+}
+
+.login-failed-message {
+    color: rgb(255, 0, 0);
+    font-size: 1.3rem;
+    float: left;
+    margin: .5rem 0 1rem 0;
+}
+
+.logo-text {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.75rem;
+    color: #008ed4;
+}
+
+.brand a:hover {
+    color: #008ed4;
+}
+
+.dashboard-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+}
+
+.dashboard-logo img {
+    width: 150px;
+    height: 150px;
+}
+
+.btn-add {
+    border: 1px solid #008ed4 !important;
+    border-radius: 3px !important;
+    padding: .4rem .75rem !important;
+    color: #008ed4;
+    transition: .3s;
+}
+
+.btn-add:hover {
+    background: #008ed4 !important;
+    color: #fff;
+}
+
+.btn-detail {
+    background: transparent;
+    border: none;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    color: #008ed4;
+}
+
+.btn-detail h5 {
+    margin: 0 2rem 0 .5rem;
+}
+
+.btn-detail .detail-arrow {
+    transition: .3s;
+}
+
+.btn-detail:hover .detail-arrow {
+    transform: translate(10px);
+    transition: .3s;
+}
+
+.btn-detail.active .detail-arrow {
+    transform: translate(10px);
+}
+
+.data-empty {
+    margin: 10rem 0;
+    font-weight: 600;
+    text-align: center;
+    opacity: .5;
+}
+
+.detail-loading {
+    font-size: 4rem;
+}
+
+.table-premis {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.pertanyaan {
+    width: 250px;
+    position: relative;
+}
+
+.pertanyaan span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-loading p {
+    margin: 0;
+    width: 100px;
+    background: rgb(220, 220, 220);
+    color: rgb(220, 220, 220);
+
+}
