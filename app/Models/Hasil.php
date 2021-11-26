@@ -13,6 +13,7 @@ class Hasil extends Model
     protected $fillable = [
         'id_analisa',
         'id_premis',
+        'pertanyaan',
         'jawaban'
     ];
 

@@ -50,11 +50,6 @@ class AdminController extends Controller
     public function hasil_rekomendasi()
     {
         $data = Analisa::where('hasil_akhir', '!=', null)->where('hasil_akhir', '!=', 'failed')->orderBy('created_at', 'DESC')->paginate(7);
-
-        foreach ($data as $key => $val) {
-            $data[$key]["hasil_akhir"] = $val->goal->jurusan;
-        }
-
         return response()->json($data);
     }
 

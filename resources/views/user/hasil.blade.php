@@ -78,7 +78,7 @@
                     <h5 class="recomendation-title">BERDASARKAN JAWABAN ANDA, KAMI MEREKOMENDASIKAN JURUSAN.</h5>
                     <div class="recomendation">
                         <div class="major-recomendation">
-                            <h4>{{ $analisa->goal->jurusan }}</h4>
+                            <h4>{{ $analisa->hasil_akhir }}</h4>
                             <div class="recomendation-star">
                                 <i class="fas fa-star star-sm"></i>
                                 <i class="fas fa-star star-md"></i>
@@ -104,7 +104,7 @@
                                 $no = 1;
                             @endphp
                             @foreach ($analisa->hasil as $p)
-                                <h5 class="field-subtitle">{{ $no }}. {{ $p->premis->pertanyaan }}</h5>
+                                <h5 class="field-subtitle">{{ $no }}. {{ $p->pertanyaan }}</h5>
                                 <div class="answers">
                                     @if ($p->jawaban == 1)
                                         <div class="answer active">

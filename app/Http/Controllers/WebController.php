@@ -41,9 +41,11 @@ class WebController extends Controller
     {
         $cek = Hasil::where('id_analisa', $request->idAnalisa)->where('id_premis', $request->premis)->first();
         if (!$cek) {
+            $pertanyaan = Premis::find($request->premis)->pertanyaan;
             Hasil::create([
                 'id_analisa' => $request->idAnalisa,
                 'id_premis' => $request->premis,
+                'pertanyaan' => $pertanyaan,
                 'jawaban' => $request->jawaban
             ]);
         }
@@ -168,7 +170,7 @@ class WebController extends Controller
                 ]);
             } else {
                 Analisa::where('id', $request->idAnalisa)->update([
-                    'hasil_akhir' => $queue
+                    'hasil_akhir' => Goal::find($queue)->jurusan
                 ]);
                 return response()->json('selesai');
             }
