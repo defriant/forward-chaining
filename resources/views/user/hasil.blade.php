@@ -86,13 +86,22 @@
                                 <i class="fas fa-star star-md"></i>
                                 <i class="fas fa-star star-sm"></i>
                             </div>
+                            <br>
+                            <p>{{ $analisa->deskripsi }}</p>
+                            <br>
                         </div>
+                    </div>
+                    <div class="q-and-a">
+                        <hr>
+                        <span>INFORMASI PENGGUNA</span>
+                        <hr>
                     </div>
                     <div class="recomendation-identity">
                         <h5><i class="far fa-user"></i> &nbsp;{{ $analisa->nama }}</h5>
                         <h5><i class="far fa-envelope"></i> &nbsp;{{ $analisa->email }}</h5>
                         <h5>Nomor Rekomendasi : {{ $analisa->id }}</h5>
                     </div>
+                    <br>
                     <div class="q-and-a">
                         <hr>
                         <span>PERTANYAAN DAN JAWABAN</span>

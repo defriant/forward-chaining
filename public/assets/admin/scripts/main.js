@@ -32,11 +32,14 @@ function getGoal() {
 $('#btn-add-goal').on('click', function(){
     if ($('#addJurusan').val().length == 0) {
         alert('Masukkan jurusan')
+    }else if($('#addDeskripsi').val().length == 0){
+        alert('Masukkan deskripsi')
     }else if($('input[name="addPremis"]:checked').length == 0){
         alert('Pilih relasi pertanyaan')
     }else{
         $('#btn-add-goal').attr('disabled', 'disabled')
         let jurusan = $('#addJurusan').val()
+        let deskripsi = $('#addDeskripsi').val()
         let idPertanyaan = []
         $('input[name="addPremis"]:checked').each(function(){
             idPertanyaan.push($(this).val())
@@ -47,6 +50,7 @@ $('#btn-add-goal').on('click', function(){
             url:'/admin/goal/add',
             data:{
                 jurusan:jurusan,
+                deskripsi:deskripsi,
                 idPertanyaan:idPertanyaan
             },
             success:function(data){
@@ -92,6 +96,7 @@ function saveGoal() {
         $('#goal-save').attr('disabled', 'disabled')
         let idGoal = $('#idGoal').val()
         let jurusan = $('#jurusan').val()
+        let deskripsi = $('#deskripsi').val()
         let idPertanyaan = []
         $('input[name="premis"]:checked').each(function(){
             idPertanyaan.push($(this).val())
@@ -102,6 +107,7 @@ function saveGoal() {
             data:{
                 idGoal:idGoal,
                 jurusan:jurusan,
+                deskripsi:deskripsi,
                 idPertanyaan:idPertanyaan
             },
             success:function(response){

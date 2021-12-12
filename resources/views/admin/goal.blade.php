@@ -54,6 +54,10 @@
                             <h5>JURUSAN :</h5>
                             <input type="text" class="form-control" id="addJurusan" value="">
                         </div>
+                        <div class="col-md-8">
+                            <h5>DESKRIPSI :</h5>
+                            <textarea class="form-control" id="addDeskripsi" placeholder="textarea" rows="4"></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -77,6 +81,5 @@
 @section('scripts')
 <script>
     getGoal()
-
 </script>
 @endsection

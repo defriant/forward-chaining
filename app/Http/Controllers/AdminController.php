@@ -83,7 +83,8 @@ class AdminController extends Controller
     public function goal_update(Request $request)
     {
         Goal::where('id', $request->idGoal)->update([
-            'jurusan' => $request->jurusan
+            'jurusan' => $request->jurusan,
+            'deskripsi' => $request->deskripsi
         ]);
 
         Rule::where('id_goal', $request->idGoal)->delete();
@@ -106,7 +107,8 @@ class AdminController extends Controller
             if (!$check) {
                 Goal::create([
                     "id" => 'G' . $no,
-                    "jurusan" => $request->jurusan
+                    "jurusan" => $request->jurusan,
+                    "deskripsi" => $request->deskripsi
                 ]);
 
                 foreach ($request->idPertanyaan as $p) {

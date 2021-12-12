@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Goal extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'goal';
     protected $fillable = [
         'id',
-        'jurusan'
+        'jurusan',
+        'deskripsi'
     ];
 
     public $incrementing = false;

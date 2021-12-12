@@ -5,9 +5,11 @@
     <div class="row">
         <div class="col-md-8">
             <h5 style="margin: 0 0 1rem 0">KEY : {{ $goal->id }} &nbsp; | &nbsp; DIBUAT PADA : {{ date('d M Y', strtotime($goal->created_at)) }}</h5>
-            <h5>JURUSAN :</h5>
             <input type="hidden" name="idGoal" id="idGoal" value="{{ $goal->id }}">
+            <h5>JURUSAN :</h5>
             <input type="text" class="form-control" id="jurusan" value="{{ $goal->jurusan }}">
+            <h5>DESKRIPSI :</h5>
+            <textarea class="form-control" id="deskripsi" placeholder="textarea" rows="4">{{ $goal->deskripsi }}</textarea>
         </div>
     </div>
 </div>

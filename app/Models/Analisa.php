@@ -14,7 +14,8 @@ class Analisa extends Model
         'id',
         'nama',
         'email',
-        'hasil_akhir'
+        'hasil_akhir',
+        'deskripsi'
     ];
 
     public function goal()

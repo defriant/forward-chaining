@@ -170,7 +170,8 @@ class WebController extends Controller
                 ]);
             } else {
                 Analisa::where('id', $request->idAnalisa)->update([
-                    'hasil_akhir' => Goal::find($queue)->jurusan
+                    'hasil_akhir' => Goal::find($queue)->jurusan,
+                    'deskripsi' => Goal::find($queue)->deskripsi
                 ]);
                 return response()->json('selesai');
             }
