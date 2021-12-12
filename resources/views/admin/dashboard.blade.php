@@ -50,7 +50,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Hasil Analisa</h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" id="hasil-analisa">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -92,50 +92,58 @@
             type:'post',
             url:'/hasil-rekomendasi',
             success:function(data){
-                $('#hasil-rekomendasi').empty()
-                $.each(data.data, function(i, v){
-                    $('#hasil-rekomendasi').append(`<tr>
-                                                        <td>`+v.id+`</td>
-                                                        <td>`+v.nama+`</td>
-                                                        <td>`+v.email+`</td>
-                                                        <td>`+v.hasil_akhir+`</td>
-                                                    </tr>`)
-                })
+                console.log(data.data.length);
+                if (data.data.length > 0) {
+                    $('#hasil-rekomendasi').empty()
+                    $.each(data.data, function(i, v){
+                        $('#hasil-rekomendasi').append(`<tr>
+                                                            <td>`+v.id+`</td>
+                                                            <td>`+v.nama+`</td>
+                                                            <td>`+v.email+`</td>
+                                                            <td>`+v.hasil_akhir+`</td>
+                                                        </tr>`)
+                    })
 
-                if (data.prev_page_url != null) {
-                    $('.pagination').append(`<li id="prevPage">
-                                                <a href="`+data.prev_page_url+`" aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                </a>
-                                            </li>`)
-                }else{
-                    $('.pagination').append(`<li id="prevPage" class="disabled">
-                                                <a href="" aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                </a>
-                                            </li>`)
-                }
-
-                for (let i = 1; i <= data.last_page; i++) {
-                    if (i == data.current_page) {
-                        $('.pagination').append(`<li class="page active" id="page-`+i+`"><a href="?page=`+i+`">`+i+`</a></li>`)
+                    if (data.prev_page_url != null) {
+                        $('.pagination').append(`<li id="prevPage">
+                                                    <a href="`+data.prev_page_url+`" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>`)
                     }else{
-                        $('.pagination').append(`<li class="page" id="page-`+i+`"><a href="?page=`+i+`">`+i+`</a></li>`)
+                        $('.pagination').append(`<li id="prevPage" class="disabled">
+                                                    <a href="" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>`)
                     }
-                }
 
-                if (data.next_page_url != null) {
-                    $('.pagination').append(`<li id="nextPage">
-                                                <a href="`+data.next_page_url+`" aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                </a>
-                                            </li>`)
+                    for (let i = 1; i <= data.last_page; i++) {
+                        if (i == data.current_page) {
+                            $('.pagination').append(`<li class="page active" id="page-`+i+`"><a href="?page=`+i+`">`+i+`</a></li>`)
+                        }else{
+                            $('.pagination').append(`<li class="page" id="page-`+i+`"><a href="?page=`+i+`">`+i+`</a></li>`)
+                        }
+                    }
+
+                    if (data.next_page_url != null) {
+                        $('.pagination').append(`<li id="nextPage">
+                                                    <a href="`+data.next_page_url+`" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>`)
+                    }else{
+                        $('.pagination').append(`<li id="nextPage" class="disabled">
+                                                    <a href="" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>`)
+                    }
+                    
                 }else{
-                    $('.pagination').append(`<li id="nextPage" class="disabled">
-                                                <a href="" aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                </a>
-                                            </li>`)
+                    $('#hasil-analisa').html(`<br><br><br>
+                                                <h4 class="text-center" style="opacity: .75"><i>Belum ada hasil analisa</i></h4>
+                                                <br><br><br><br>`)
                 }
 
                 paginationLink()
