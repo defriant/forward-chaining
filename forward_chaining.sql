@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Des 2021 pada 10.12
+-- Waktu pembuatan: 17 Des 2021 pada 16.41
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -54,9 +54,17 @@ CREATE TABLE `analisa` (
   `nama` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `hasil_akhir` varchar(255) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `analisa`
+--
+
+INSERT INTO `analisa` (`id`, `nama`, `email`, `hasil_akhir`, `deskripsi`, `created_at`, `updated_at`) VALUES
+('1639311397', 'Tes', 'tes@tes.com', 'Analisis Kimia', 'Tess', '2021-12-12 12:16:37', '2021-12-12 12:16:42');
 
 -- --------------------------------------------------------
 
@@ -67,6 +75,7 @@ CREATE TABLE `analisa` (
 CREATE TABLE `goal` (
   `id` varchar(10) NOT NULL,
   `jurusan` varchar(50) NOT NULL,
+  `deskripsi` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -75,11 +84,12 @@ CREATE TABLE `goal` (
 -- Dumping data untuk tabel `goal`
 --
 
-INSERT INTO `goal` (`id`, `jurusan`, `created_at`, `updated_at`) VALUES
-('G1', 'Analisis Kimia', '2021-12-06 13:52:22', '2021-12-06 13:52:22'),
-('G2', 'Perbankan Syariah', '2021-10-29 12:11:29', '2021-11-02 12:40:48'),
-('G3', 'Rekayasa Perangkat Lunak', '2021-10-29 12:11:40', '2021-11-19 12:08:51'),
-('G4', 'Teknik Elektronika', '2021-10-29 12:11:50', '2021-11-04 16:15:46');
+INSERT INTO `goal` (`id`, `jurusan`, `deskripsi`, `created_at`, `updated_at`) VALUES
+('G1', 'Analisis Kimia', 'Tess', '2021-12-06 13:52:22', '2021-12-12 12:10:46'),
+('G2', 'Perbankan Syariah', '', '2021-10-29 12:11:29', '2021-11-02 12:40:48'),
+('G3', 'Rekayasa Perangkat Lunak', '', '2021-10-29 12:11:40', '2021-11-19 12:08:51'),
+('G4', 'Teknik Elektronika', '', '2021-10-29 12:11:50', '2021-11-04 16:15:46'),
+('G5', 'Tes', 'tesssss', '2021-12-12 12:06:25', '2021-12-12 12:08:54');
 
 -- --------------------------------------------------------
 
@@ -96,6 +106,16 @@ CREATE TABLE `hasil` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `hasil`
+--
+
+INSERT INTO `hasil` (`id`, `id_analisa`, `id_premis`, `pertanyaan`, `jawaban`, `created_at`, `updated_at`) VALUES
+(575, '1639311397', 'P1', 'Apakah kamu suka bersosialisasi di lingkunganmu ?', 0, '2021-12-12 12:16:39', '2021-12-12 12:16:39'),
+(576, '1639311397', 'P2', 'Apakah kamu tertarik dengan teknologi ?', 0, '2021-12-12 12:16:40', '2021-12-12 12:16:40'),
+(577, '1639311397', 'P3', 'Apakah kamu menyukai pelajaran matematika ?', 1, '2021-12-12 12:16:41', '2021-12-12 12:16:41'),
+(578, '1639311397', 'P4', 'Apakah kamu hobi membaca ?', 1, '2021-12-12 12:16:42', '2021-12-12 12:16:42');
 
 -- --------------------------------------------------------
 
@@ -146,13 +166,14 @@ INSERT INTO `rule` (`id`, `id_goal`, `id_premis`, `created_at`, `updated_at`) VA
 (119, 'G4', 'P1', '2021-12-12 08:56:06', '2021-12-12 08:56:06'),
 (120, 'G3', 'P2', '2021-12-12 08:57:18', '2021-12-12 08:57:18'),
 (121, 'G4', 'P2', '2021-12-12 08:57:18', '2021-12-12 08:57:18'),
-(122, 'G1', 'P3', '2021-12-12 08:57:39', '2021-12-12 08:57:39'),
 (123, 'G3', 'P3', '2021-12-12 08:57:39', '2021-12-12 08:57:39'),
-(124, 'G1', 'P4', '2021-12-12 08:57:58', '2021-12-12 08:57:58'),
 (125, 'G2', 'P4', '2021-12-12 08:57:58', '2021-12-12 08:57:58'),
 (127, 'G3', 'P6', '2021-12-12 08:59:18', '2021-12-12 08:59:18'),
 (128, 'G2', 'P7', '2021-12-12 09:00:37', '2021-12-12 09:00:37'),
-(129, 'G4', 'P5', '2021-12-12 09:07:01', '2021-12-12 09:07:01');
+(129, 'G4', 'P5', '2021-12-12 09:07:01', '2021-12-12 09:07:01'),
+(131, 'G5', 'P1', '2021-12-12 12:08:54', '2021-12-12 12:08:54'),
+(132, 'G1', 'P3', '2021-12-12 12:10:46', '2021-12-12 12:10:46'),
+(133, 'G1', 'P4', '2021-12-12 12:10:46', '2021-12-12 12:10:46');
 
 --
 -- Indexes for dumped tables
@@ -209,13 +230,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `hasil`
 --
 ALTER TABLE `hasil`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=565;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=579;
 
 --
 -- AUTO_INCREMENT untuk tabel `rule`
 --
 ALTER TABLE `rule`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
